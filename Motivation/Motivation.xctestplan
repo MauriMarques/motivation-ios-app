@@ -1,0 +1,29 @@
+{
+  "configurations" : [
+    {
+      "id" : "8690ACC7-CECB-4430-B84C-3E18B1023AE0",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Motivation.xcodeproj",
+      "identifier" : "AF0C74272BD7507000A7793D",
+      "name" : "Motivation"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Motivation.xcodeproj",
+        "identifier" : "AF0C743D2BD7507100A7793D",
+        "name" : "MotivationTests"
+      }
+    }
+  ],
+  "version" : 1
+}

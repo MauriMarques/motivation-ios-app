@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "305D91CC-E782-4016-B3CA-12ABF6D564B5",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Motivation.xcodeproj",
+        "identifier" : "AF0C743D2BD7507100A7793D",
+        "name" : "MotivationTests"
+      }
+    }
+  ],
+  "version" : 1
+}
