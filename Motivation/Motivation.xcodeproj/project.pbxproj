@@ -113,6 +113,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				AF6022452BE1DC530076F454 /* PBXTargetDependency */,
 			);
 			name = Motivation;
 			productName = Motivation;
@@ -123,6 +124,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AF0C74552BD7507100A7793D /* Build configuration list for PBXNativeTarget "MotivationTests" */;
 			buildPhases = (
+				AF9BAE0B2BE82579000186F5 /* SwiftFormat */,
 				AF0C743A2BD7507100A7793D /* Sources */,
 				AF0C743B2BD7507100A7793D /* Frameworks */,
 				AF0C743C2BD7507100A7793D /* Resources */,
@@ -165,6 +167,10 @@
 				Base,
 			);
 			mainGroup = AF0C741F2BD7507000A7793D;
+			packageReferences = (
+				AF6022432BE1DC350076F454 /* XCRemoteSwiftPackageReference "SwiftLint" */,
+				AF6022472BE279D10076F454 /* XCRemoteSwiftPackageReference "SwiftFormat" */,
+			);
 			productRefGroup = AF0C74292BD7507000A7793D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -195,6 +201,28 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		AF9BAE0B2BE82579000186F5 /* SwiftFormat */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftFormat;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd BuildTools\nSDKROOT=(xcrun --sdk macosx --show-sdk-path)\n#swift package update #Uncomment this line temporarily to update the version used to the latest matching your BuildTools/Package.swift file\nswift run -c release swiftformat \"$SRCROOT\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		AF0C74242BD7507000A7793D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -221,6 +249,10 @@
 			isa = PBXTargetDependency;
 			target = AF0C74272BD7507000A7793D /* Motivation */;
 			targetProxy = AF0C743F2BD7507100A7793D /* PBXContainerItemProxy */;
+		};
+		AF6022452BE1DC530076F454 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = AF6022442BE1DC530076F454 /* SwiftLintPlugin */;
 		};
 /* End PBXTargetDependency section */
 
@@ -371,6 +403,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Motivation/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MotivationApp;
@@ -406,6 +439,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Motivation/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MotivationApp;
@@ -440,6 +474,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				MARKETING_VERSION = 1.0;
@@ -459,6 +494,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				MARKETING_VERSION = 1.0;
@@ -502,6 +538,33 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AF6022432BE1DC350076F454 /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/SwiftLint.git";
+			requirement = {
+				kind = exactVersion;
+				version = 0.54.0;
+			};
+		};
+		AF6022472BE279D10076F454 /* XCRemoteSwiftPackageReference "SwiftFormat" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nicklockwood/SwiftFormat.git";
+			requirement = {
+				kind = exactVersion;
+				version = 0.53.8;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AF6022442BE1DC530076F454 /* SwiftLintPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AF6022432BE1DC350076F454 /* XCRemoteSwiftPackageReference "SwiftLint" */;
+			productName = "plugin:SwiftLintPlugin";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AF0C74202BD7507000A7793D /* Project object */;
 }
