@@ -37,7 +37,7 @@
 		AF0C74392BD7507100A7793D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF0C743E2BD7507100A7793D /* MotivationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MotivationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF0C74422BD7507100A7793D /* MotivationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotivationTests.swift; sourceTree = "<group>"; };
-		AF0C745C2BD751E400A7793D /* Motivation.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = Motivation.xctestplan; path = ../Motivation.xctestplan; sourceTree = "<group>"; };
+		AFC3DC1A2BE1D7C100A3878A /* Motivation.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Motivation.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +61,6 @@
 		AF0C741F2BD7507000A7793D = {
 			isa = PBXGroup;
 			children = (
-				AF0C745C2BD751E400A7793D /* Motivation.xctestplan */,
 				AF0C742A2BD7507000A7793D /* Motivation */,
 				AF0C74412BD7507100A7793D /* MotivationTests */,
 				AF0C74292BD7507000A7793D /* Products */,
@@ -80,6 +79,7 @@
 		AF0C742A2BD7507000A7793D /* Motivation */ = {
 			isa = PBXGroup;
 			children = (
+				AFC3DC1A2BE1D7C100A3878A /* Motivation.xctestplan */,
 				AF0C742B2BD7507000A7793D /* AppDelegate.swift */,
 				AF0C742D2BD7507000A7793D /* SceneDelegate.swift */,
 				AF0C742F2BD7507000A7793D /* ViewController.swift */,
