@@ -11,7 +11,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     lazy var window: UIWindow? = {
         let window = UIWindow()
-        window.rootViewController = QuotesViewController()
+        window.rootViewController = QuotesBuilder().build()
         return window
     }()
 

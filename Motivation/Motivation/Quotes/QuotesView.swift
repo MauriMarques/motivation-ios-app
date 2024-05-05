@@ -7,7 +7,11 @@
 
 import UIKit
 
-final class QuotesView: UIView, CodingView {
+final class QuotesView: ViewModelHandler<QuotesView.ViewModel>, CodingView {
+    struct ViewModel {
+        let quotes: [String]?
+    }
+
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(
@@ -27,13 +31,17 @@ final class QuotesView: UIView, CodingView {
         return collectionView
     }()
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override init(viewModel: ViewModel) {
+        super.init(viewModel: viewModel)
         setup()
     }
 
     required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    override func bindViewModel() {
+        collectionView.reloadData()
     }
 
     // MARK: - CodingView
@@ -61,12 +69,8 @@ final class QuotesView: UIView, CodingView {
 }
 
 extension QuotesView: UICollectionViewDataSource {
-    func numberOfSections(in _: UICollectionView) -> Int {
-        1
-    }
-
     func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
-        10
+        viewModel.quotes?.count ?? .zero
     }
 
     func collectionView(
@@ -74,9 +78,10 @@ extension QuotesView: UICollectionViewDataSource {
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
         guard let cell = collectionView
-            .dequeueReusableCell(withReuseIdentifier: QuoteCell.identifier, for: indexPath) as? QuoteCell
+            .dequeueReusableCell(withReuseIdentifier: QuoteCell.identifier, for: indexPath) as? QuoteCell,
+            let quote = viewModel.quotes?[indexPath.item]
         else { return UICollectionViewCell() }
-        cell.configure(title: "This is a quote")
+        cell.configure(title: quote)
         return cell
     }
 }

@@ -14,6 +14,7 @@ final class QuoteCell: UICollectionViewCell, CodingView {
         let label = UILabel()
         label.font = .systemFont(ofSize: 16.0)
         label.textColor = .label
+        label.numberOfLines = .zero
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

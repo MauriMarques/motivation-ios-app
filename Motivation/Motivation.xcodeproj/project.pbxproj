@@ -12,6 +12,10 @@
 		AF0C74352BD7507100A7793D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF0C74342BD7507100A7793D /* Assets.xcassets */; };
 		AF0C74382BD7507100A7793D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF0C74362BD7507100A7793D /* LaunchScreen.storyboard */; };
 		AF0C74432BD7507100A7793D /* MotivationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0C74422BD7507100A7793D /* MotivationTests.swift */; };
+		AFAA4CD72BE849CF001CDCF1 /* QuotesViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAA4CD62BE849CF001CDCF1 /* QuotesViewModelFactory.swift */; };
+		AFAA4CD92BE849F2001CDCF1 /* ViewModelHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAA4CD82BE849F2001CDCF1 /* ViewModelHandler.swift */; };
+		AFAA4CDB2BE84CAD001CDCF1 /* QuotesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAA4CDA2BE84CAD001CDCF1 /* QuotesInteractor.swift */; };
+		AFAA4CDD2BE84CC5001CDCF1 /* QuotesBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAA4CDC2BE84CC5001CDCF1 /* QuotesBuilder.swift */; };
 		AFE3E1602BE83F0E00D17037 /* CodingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE3E15F2BE83F0E00D17037 /* CodingView.swift */; };
 		AFE3E1622BE83F3F00D17037 /* QuotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE3E1612BE83F3F00D17037 /* QuotesView.swift */; };
 		AFE3E1642BE83F9500D17037 /* QuoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE3E1632BE83F9500D17037 /* QuoteCell.swift */; };
@@ -36,6 +40,10 @@
 		AF0C74392BD7507100A7793D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF0C743E2BD7507100A7793D /* MotivationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MotivationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF0C74422BD7507100A7793D /* MotivationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotivationTests.swift; sourceTree = "<group>"; };
+		AFAA4CD62BE849CF001CDCF1 /* QuotesViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesViewModelFactory.swift; sourceTree = "<group>"; };
+		AFAA4CD82BE849F2001CDCF1 /* ViewModelHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelHandler.swift; sourceTree = "<group>"; };
+		AFAA4CDA2BE84CAD001CDCF1 /* QuotesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesInteractor.swift; sourceTree = "<group>"; };
+		AFAA4CDC2BE84CC5001CDCF1 /* QuotesBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesBuilder.swift; sourceTree = "<group>"; };
 		AFC3DC1A2BE1D7C100A3878A /* Motivation.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Motivation.xctestplan; sourceTree = "<group>"; };
 		AFE3E15F2BE83F0E00D17037 /* CodingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingView.swift; sourceTree = "<group>"; };
 		AFE3E1612BE83F3F00D17037 /* QuotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesView.swift; sourceTree = "<group>"; };
@@ -106,6 +114,9 @@
 				AF0C742F2BD7507000A7793D /* QuotesViewController.swift */,
 				AFE3E1612BE83F3F00D17037 /* QuotesView.swift */,
 				AFE3E1632BE83F9500D17037 /* QuoteCell.swift */,
+				AFAA4CD62BE849CF001CDCF1 /* QuotesViewModelFactory.swift */,
+				AFAA4CDA2BE84CAD001CDCF1 /* QuotesInteractor.swift */,
+				AFAA4CDC2BE84CC5001CDCF1 /* QuotesBuilder.swift */,
 			);
 			path = Quotes;
 			sourceTree = "<group>";
@@ -114,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				AFE3E15F2BE83F0E00D17037 /* CodingView.swift */,
+				AFAA4CD82BE849F2001CDCF1 /* ViewModelHandler.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -246,11 +258,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFAA4CDD2BE84CC5001CDCF1 /* QuotesBuilder.swift in Sources */,
 				AFE3E1642BE83F9500D17037 /* QuoteCell.swift in Sources */,
 				AFE3E1602BE83F0E00D17037 /* CodingView.swift in Sources */,
+				AFAA4CD72BE849CF001CDCF1 /* QuotesViewModelFactory.swift in Sources */,
 				AF0C74302BD7507000A7793D /* QuotesViewController.swift in Sources */,
 				AF0C742C2BD7507000A7793D /* AppDelegate.swift in Sources */,
+				AFAA4CDB2BE84CAD001CDCF1 /* QuotesInteractor.swift in Sources */,
 				AFE3E1622BE83F3F00D17037 /* QuotesView.swift in Sources */,
+				AFAA4CD92BE849F2001CDCF1 /* ViewModelHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
