@@ -8,7 +8,7 @@
 import UIKit
 
 final class QuotesView: ViewModelHandler<QuotesView.ViewModel>, CodingView {
-    struct ViewModel {
+    struct ViewModel: Equatable {
         let quotes: [String]?
     }
 

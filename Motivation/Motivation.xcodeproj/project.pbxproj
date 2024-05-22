@@ -11,7 +11,12 @@
 		AF0C74302BD7507000A7793D /* QuotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0C742F2BD7507000A7793D /* QuotesViewController.swift */; };
 		AF0C74352BD7507100A7793D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF0C74342BD7507100A7793D /* Assets.xcassets */; };
 		AF0C74382BD7507100A7793D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF0C74362BD7507100A7793D /* LaunchScreen.storyboard */; };
-		AF0C74432BD7507100A7793D /* MotivationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0C74422BD7507100A7793D /* MotivationTests.swift */; };
+		AF84B4152BF43B7F0064C6DD /* QuotesPresenterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF84B4142BF43B7F0064C6DD /* QuotesPresenterSpy.swift */; };
+		AF84B4172BF43BC00064C6DD /* QuotesInteractorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF84B4162BF43BC00064C6DD /* QuotesInteractorSpy.swift */; };
+		AF84B41A2BF43C070064C6DD /* DefaultQuotesInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF84B4192BF43C070064C6DD /* DefaultQuotesInteractorTests.swift */; };
+		AF84B41C2BF4443C0064C6DD /* QuotesViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF84B41B2BF4443C0064C6DD /* QuotesViewControllerTests.swift */; };
+		AF84B41E2BF445030064C6DD /* QuotesViewModelFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF84B41D2BF445030064C6DD /* QuotesViewModelFactoryTests.swift */; };
+		AF84B4212BF445C10064C6DD /* QuotesMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF84B4202BF445C10064C6DD /* QuotesMock.swift */; };
 		AFAA4CD72BE849CF001CDCF1 /* QuotesViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAA4CD62BE849CF001CDCF1 /* QuotesViewModelFactory.swift */; };
 		AFAA4CD92BE849F2001CDCF1 /* ViewModelHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAA4CD82BE849F2001CDCF1 /* ViewModelHandler.swift */; };
 		AFAA4CDB2BE84CAD001CDCF1 /* QuotesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAA4CDA2BE84CAD001CDCF1 /* QuotesInteractor.swift */; };
@@ -39,7 +44,12 @@
 		AF0C74372BD7507100A7793D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF0C74392BD7507100A7793D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF0C743E2BD7507100A7793D /* MotivationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MotivationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AF0C74422BD7507100A7793D /* MotivationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotivationTests.swift; sourceTree = "<group>"; };
+		AF84B4142BF43B7F0064C6DD /* QuotesPresenterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesPresenterSpy.swift; sourceTree = "<group>"; };
+		AF84B4162BF43BC00064C6DD /* QuotesInteractorSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesInteractorSpy.swift; sourceTree = "<group>"; };
+		AF84B4192BF43C070064C6DD /* DefaultQuotesInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultQuotesInteractorTests.swift; sourceTree = "<group>"; };
+		AF84B41B2BF4443C0064C6DD /* QuotesViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesViewControllerTests.swift; sourceTree = "<group>"; };
+		AF84B41D2BF445030064C6DD /* QuotesViewModelFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesViewModelFactoryTests.swift; sourceTree = "<group>"; };
+		AF84B4202BF445C10064C6DD /* QuotesMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesMock.swift; sourceTree = "<group>"; };
 		AFAA4CD62BE849CF001CDCF1 /* QuotesViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesViewModelFactory.swift; sourceTree = "<group>"; };
 		AFAA4CD82BE849F2001CDCF1 /* ViewModelHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelHandler.swift; sourceTree = "<group>"; };
 		AFAA4CDA2BE84CAD001CDCF1 /* QuotesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesInteractor.swift; sourceTree = "<group>"; };
@@ -103,9 +113,30 @@
 		AF0C74412BD7507100A7793D /* MotivationTests */ = {
 			isa = PBXGroup;
 			children = (
-				AF0C74422BD7507100A7793D /* MotivationTests.swift */,
+				AF84B4182BF43BEE0064C6DD /* Quotes */,
 			);
 			path = MotivationTests;
+			sourceTree = "<group>";
+		};
+		AF84B4132BF43B5D0064C6DD /* Doubles */ = {
+			isa = PBXGroup;
+			children = (
+				AF84B4142BF43B7F0064C6DD /* QuotesPresenterSpy.swift */,
+				AF84B4162BF43BC00064C6DD /* QuotesInteractorSpy.swift */,
+				AF84B4202BF445C10064C6DD /* QuotesMock.swift */,
+			);
+			path = Doubles;
+			sourceTree = "<group>";
+		};
+		AF84B4182BF43BEE0064C6DD /* Quotes */ = {
+			isa = PBXGroup;
+			children = (
+				AF84B4132BF43B5D0064C6DD /* Doubles */,
+				AF84B4192BF43C070064C6DD /* DefaultQuotesInteractorTests.swift */,
+				AF84B41B2BF4443C0064C6DD /* QuotesViewControllerTests.swift */,
+				AF84B41D2BF445030064C6DD /* QuotesViewModelFactoryTests.swift */,
+			);
+			path = Quotes;
 			sourceTree = "<group>";
 		};
 		AFDB18D32BE7284B00FA0821 /* Quotes */ = {
@@ -274,7 +305,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF0C74432BD7507100A7793D /* MotivationTests.swift in Sources */,
+				AF84B4152BF43B7F0064C6DD /* QuotesPresenterSpy.swift in Sources */,
+				AF84B41C2BF4443C0064C6DD /* QuotesViewControllerTests.swift in Sources */,
+				AF84B41E2BF445030064C6DD /* QuotesViewModelFactoryTests.swift in Sources */,
+				AF84B41A2BF43C070064C6DD /* DefaultQuotesInteractorTests.swift in Sources */,
+				AF84B4212BF445C10064C6DD /* QuotesMock.swift in Sources */,
+				AF84B4172BF43BC00064C6DD /* QuotesInteractorSpy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
