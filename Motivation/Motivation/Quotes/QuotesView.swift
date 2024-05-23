@@ -7,9 +7,13 @@
 
 import UIKit
 
+protocol QuotesViewDelegate: AnyObject {
+    func quotesView(_ quotesView: QuotesView, didTapLikeButtonAtIndex index: Int)
+}
+
 final class QuotesView: ViewModelHandler<QuotesView.ViewModel>, CodingView {
     struct ViewModel: Equatable {
-        let quotes: [String]?
+        let quotes: [Quote]?
     }
 
     private lazy var collectionView: UICollectionView = {
@@ -30,6 +34,8 @@ final class QuotesView: ViewModelHandler<QuotesView.ViewModel>, CodingView {
         collectionView.dataSource = self
         return collectionView
     }()
+
+    weak var delegate: QuotesViewDelegate?
 
     override init(viewModel: ViewModel) {
         super.init(viewModel: viewModel)
@@ -81,7 +87,18 @@ extension QuotesView: UICollectionViewDataSource {
             .dequeueReusableCell(withReuseIdentifier: QuoteCell.identifier, for: indexPath) as? QuoteCell,
             let quote = viewModel.quotes?[indexPath.item]
         else { return UICollectionViewCell() }
-        cell.configure(title: quote)
+        cell.configure(
+            title: quote.text,
+            isLiked: quote.isLiked,
+            likeAction: { [weak self] in
+                guard let self else { return }
+
+                delegate?.quotesView(
+                    self,
+                    didTapLikeButtonAtIndex: indexPath.item
+                )
+            }
+        )
         return cell
     }
 }

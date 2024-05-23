@@ -8,13 +8,17 @@
 import UIKit
 
 protocol QuotesPresenter: AnyObject {
-    func showQuotes(_ quotes: [String])
+    func showQuotes(_ quotes: [Quote])
 }
 
 final class QuotesViewController: UIViewController {
     private let interactor: QuotesInteractor
     private let viewModelFactory = QuotesViewModelFactory()
-    private lazy var quotesView: QuotesView = .init(viewModel: viewModelFactory.createInitialModel())
+    private lazy var quotesView: QuotesView = {
+        let quotesView = QuotesView(viewModel: viewModelFactory.createInitialModel())
+        quotesView.delegate = self
+        return quotesView
+    }()
 
     init(interactor: QuotesInteractor) {
         self.interactor = interactor
@@ -36,7 +40,13 @@ final class QuotesViewController: UIViewController {
 }
 
 extension QuotesViewController: QuotesPresenter {
-    func showQuotes(_ quotes: [String]) {
+    func showQuotes(_ quotes: [Quote]) {
         quotesView.viewModel = viewModelFactory.createFromQuotes(quotes)
+    }
+}
+
+extension QuotesViewController: QuotesViewDelegate {
+    func quotesView(_ quotesView: QuotesView, didTapLikeButtonAtIndex index: Int) {
+        interactor.interactWithLike(atIndex: index)
     }
 }

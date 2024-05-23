@@ -26,7 +26,7 @@ final class QuotesViewModelFactoryTests: XCTestCase {
         // Given
         let sut = QuotesViewModelFactory()
 
-        let quotes = QuotesMock.simpleQuotes
+        let quotes = QuotesMock.simpleQuotesModel
         let expectedCreateFromQuotesViewModel = QuotesView.ViewModel(quotes: quotes)
 
         // When

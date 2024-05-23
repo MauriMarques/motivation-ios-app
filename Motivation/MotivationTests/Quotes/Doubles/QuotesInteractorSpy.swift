@@ -25,4 +25,16 @@ final class QuotesInteractorSpy: QuotesInteractor {
         invokedLoadQuotes = true
         invokedLoadQuotesCount += 1
     }
+
+    var invokedInteractWithLike = false
+    var invokedInteractWithLikeCount = 0
+    var invokedInteractWithLikeParameters: (index: Int, Void)?
+    var invokedInteractWithLikeParametersList = [(index: Int, Void)]()
+
+    func interactWithLike(atIndex index: Int) {
+        invokedInteractWithLike = true
+        invokedInteractWithLikeCount += 1
+        invokedInteractWithLikeParameters = (index, ())
+        invokedInteractWithLikeParametersList.append((index, ()))
+    }
 }

@@ -18,7 +18,25 @@ final class DefaultQuotesInteractorTests: XCTestCase {
 
         // Verify
         XCTAssertEqual(presenterSpy.invokedShowQuotesCount, 1)
-        XCTAssertEqual(presenterSpy.invokedShowQuotesParameters?.quotes, QuotesMock.simpleQuotes)
+        XCTAssertEqual(presenterSpy.invokedShowQuotesParameters?.quotes, QuotesMock.simpleQuotesModel)
+    }
+
+    func test_interactWithLike_shouldCallPresenterWithLoadedQuotes() {
+        // Given
+        var expectedQuotes = QuotesMock.simpleQuotesModel
+        expectedQuotes[0] = Quote(
+            text: expectedQuotes[0].text,
+            isLiked: !expectedQuotes[0].isLiked
+        )
+
+        let (sut, presenterSpy) = makeSut()
+
+        // When
+        sut.interactWithLike(atIndex: 0)
+
+        // Verify
+        XCTAssertEqual(presenterSpy.invokedShowQuotesCount, 1)
+        XCTAssertEqual(presenterSpy.invokedShowQuotesParameters?.quotes, expectedQuotes)
     }
 
     private func makeSut() -> (DefaultQuotesInteractor, QuotesPresenterSpy) {
