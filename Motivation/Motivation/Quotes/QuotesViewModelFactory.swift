@@ -12,7 +12,7 @@ struct QuotesViewModelFactory {
         .init(quotes: nil)
     }
 
-    func createFromQuotes(_ quotes: [String]) -> QuotesView.ViewModel {
+    func createFromQuotes(_ quotes: [Quote]) -> QuotesView.ViewModel {
         .init(quotes: quotes)
     }
 }

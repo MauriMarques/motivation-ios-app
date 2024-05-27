@@ -17,6 +17,8 @@
 		AF84B41C2BF4443C0064C6DD /* QuotesViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF84B41B2BF4443C0064C6DD /* QuotesViewControllerTests.swift */; };
 		AF84B41E2BF445030064C6DD /* QuotesViewModelFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF84B41D2BF445030064C6DD /* QuotesViewModelFactoryTests.swift */; };
 		AF84B4212BF445C10064C6DD /* QuotesMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF84B4202BF445C10064C6DD /* QuotesMock.swift */; };
+		AF84B4232BFD8D610064C6DD /* UIViewPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF84B4222BFD8D610064C6DD /* UIViewPreview.swift */; };
+		AF84B4262BFD95180064C6DD /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF84B4252BFD95180064C6DD /* Quote.swift */; };
 		AFAA4CD72BE849CF001CDCF1 /* QuotesViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAA4CD62BE849CF001CDCF1 /* QuotesViewModelFactory.swift */; };
 		AFAA4CD92BE849F2001CDCF1 /* ViewModelHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAA4CD82BE849F2001CDCF1 /* ViewModelHandler.swift */; };
 		AFAA4CDB2BE84CAD001CDCF1 /* QuotesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAA4CDA2BE84CAD001CDCF1 /* QuotesInteractor.swift */; };
@@ -50,6 +52,8 @@
 		AF84B41B2BF4443C0064C6DD /* QuotesViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesViewControllerTests.swift; sourceTree = "<group>"; };
 		AF84B41D2BF445030064C6DD /* QuotesViewModelFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesViewModelFactoryTests.swift; sourceTree = "<group>"; };
 		AF84B4202BF445C10064C6DD /* QuotesMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesMock.swift; sourceTree = "<group>"; };
+		AF84B4222BFD8D610064C6DD /* UIViewPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewPreview.swift; sourceTree = "<group>"; };
+		AF84B4252BFD95180064C6DD /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 		AFAA4CD62BE849CF001CDCF1 /* QuotesViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesViewModelFactory.swift; sourceTree = "<group>"; };
 		AFAA4CD82BE849F2001CDCF1 /* ViewModelHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelHandler.swift; sourceTree = "<group>"; };
 		AFAA4CDA2BE84CAD001CDCF1 /* QuotesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesInteractor.swift; sourceTree = "<group>"; };
@@ -139,9 +143,18 @@
 			path = Quotes;
 			sourceTree = "<group>";
 		};
+		AF84B4242BFD94ED0064C6DD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AF84B4252BFD95180064C6DD /* Quote.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		AFDB18D32BE7284B00FA0821 /* Quotes */ = {
 			isa = PBXGroup;
 			children = (
+				AF84B4242BFD94ED0064C6DD /* Models */,
 				AF0C742F2BD7507000A7793D /* QuotesViewController.swift */,
 				AFE3E1612BE83F3F00D17037 /* QuotesView.swift */,
 				AFE3E1632BE83F9500D17037 /* QuoteCell.swift */,
@@ -157,6 +170,7 @@
 			children = (
 				AFE3E15F2BE83F0E00D17037 /* CodingView.swift */,
 				AFAA4CD82BE849F2001CDCF1 /* ViewModelHandler.swift */,
+				AF84B4222BFD8D610064C6DD /* UIViewPreview.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -294,10 +308,12 @@
 				AFE3E1602BE83F0E00D17037 /* CodingView.swift in Sources */,
 				AFAA4CD72BE849CF001CDCF1 /* QuotesViewModelFactory.swift in Sources */,
 				AF0C74302BD7507000A7793D /* QuotesViewController.swift in Sources */,
+				AF84B4232BFD8D610064C6DD /* UIViewPreview.swift in Sources */,
 				AF0C742C2BD7507000A7793D /* AppDelegate.swift in Sources */,
 				AFAA4CDB2BE84CAD001CDCF1 /* QuotesInteractor.swift in Sources */,
 				AFE3E1622BE83F3F00D17037 /* QuotesView.swift in Sources */,
 				AFAA4CD92BE849F2001CDCF1 /* ViewModelHandler.swift in Sources */,
+				AF84B4262BFD95180064C6DD /* Quote.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

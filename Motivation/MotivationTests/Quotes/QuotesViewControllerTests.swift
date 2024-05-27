@@ -20,6 +20,23 @@ final class QuotesViewControllerTests: XCTestCase {
         XCTAssertEqual(interactorSpy.invokedLoadQuotesCount, 1)
     }
 
+    func test_quotesViewDelegate_didTapLikeButtonAtIndex_shouldCallInteractWithLikeOnInteractor() {
+        // Given
+        let quotesView = QuotesView(viewModel: .init(quotes: nil))
+        let tappedIndex = 0
+        let (sut, interactorSpy) = makeSut()
+
+        // When
+        sut.quotesView(
+            quotesView,
+            didTapLikeButtonAtIndex: tappedIndex
+        )
+
+        // Verify
+        XCTAssertEqual(interactorSpy.invokedInteractWithLikeCount, 1)
+        XCTAssertEqual(interactorSpy.invokedInteractWithLikeParameters?.index, tappedIndex)
+    }
+
     private func makeSut() -> (QuotesViewController, QuotesInteractorSpy) {
         let interactorSpy = QuotesInteractorSpy()
         let sut = QuotesViewController(interactor: interactorSpy)

@@ -10,10 +10,10 @@
 final class QuotesPresenterSpy: QuotesPresenter {
     var invokedShowQuotes = false
     var invokedShowQuotesCount = 0
-    var invokedShowQuotesParameters: (quotes: [String], Void)?
-    var invokedShowQuotesParametersList = [(quotes: [String], Void)]()
+    var invokedShowQuotesParameters: (quotes: [Quote], Void)?
+    var invokedShowQuotesParametersList = [(quotes: [Quote], Void)]()
 
-    func showQuotes(_ quotes: [String]) {
+    func showQuotes(_ quotes: [Quote]) {
         invokedShowQuotes = true
         invokedShowQuotesCount += 1
         invokedShowQuotesParameters = (quotes, ())
