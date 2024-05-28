@@ -31,10 +31,22 @@ final class QuotesInteractorSpy: QuotesInteractor {
     var invokedInteractWithLikeParameters: (index: Int, Void)?
     var invokedInteractWithLikeParametersList = [(index: Int, Void)]()
 
+    var invokedInteractWithShared = false
+    var invokedInteractWithShareCount = 0
+    var invokedInteractWithSharedParameters: (index: Int, Void)?
+    var invokedInteractWithSharedParametersList = [(index: Int, Void)]()
+
     func interactWithLike(atIndex index: Int) {
         invokedInteractWithLike = true
         invokedInteractWithLikeCount += 1
         invokedInteractWithLikeParameters = (index, ())
         invokedInteractWithLikeParametersList.append((index, ()))
+    }
+
+    func interactWithShared(atIndex index: Int) {
+        invokedInteractWithShared = true
+        invokedInteractWithShareCount += 1
+        invokedInteractWithSharedParameters = (index, ())
+        invokedInteractWithSharedParametersList.append((index, ()))
     }
 }

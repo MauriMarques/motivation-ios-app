@@ -49,4 +49,8 @@ extension QuotesViewController: QuotesViewDelegate {
     func quotesView(_ quotesView: QuotesView, didTapLikeButtonAtIndex index: Int) {
         interactor.interactWithLike(atIndex: index)
     }
+
+    func quotesView(_ quotesView: QuotesView, didTapSharedButtomAtIndex index: Int) {
+        interactor.interactWithShared(atIndex: index)
+    }
 }
