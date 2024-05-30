@@ -47,7 +47,6 @@ final class QuoteCell: UICollectionViewCell, CodingView {
         title: String,
         isLiked: Bool,
         likeAction: @escaping (() -> Void),
-        isShared: Int,
         shareAction: @escaping (() -> Void)
     ) {
         label.text = title
@@ -57,7 +56,6 @@ final class QuoteCell: UICollectionViewCell, CodingView {
             likeAction: likeAction
         )
         configureShareButton(
-            isShared: isShared,
             shareAction: shareAction
         )
     }
@@ -86,7 +84,6 @@ final class QuoteCell: UICollectionViewCell, CodingView {
     }
 
     private func configureShareButton(
-        isShared: Int,
         shareAction: @escaping (() -> Void)
     ) {
         let config = UIImage.SymbolConfiguration(paletteColors: [.black])
@@ -178,7 +175,6 @@ final class QuoteCell: UICollectionViewCell, CodingView {
                     title: "Texto bem grande",
                     isLiked: false,
                     likeAction: {},
-                    isShared: 0,
                     shareAction: {}
                 )
                 return cell

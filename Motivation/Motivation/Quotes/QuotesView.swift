@@ -99,7 +99,6 @@ extension QuotesView: UICollectionViewDataSource {
                     didTapLikeButtonAtIndex: indexPath.item
                 )
             },
-            isShared: quote.isShared,
             shareAction: { [weak self] in
                 guard let self else { return }
                 delegate?.quotesView(

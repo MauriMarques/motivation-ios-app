@@ -1,17 +1,14 @@
 struct Quote: Equatable {
     let text: String
     let isLiked: Bool
-    let isShared: Int
 
-    init(text: String, isLiked: Bool, isShared: Int) {
+    init(text: String, isLiked: Bool) {
         self.text = text
         self.isLiked = isLiked
-        self.isShared = isShared
     }
 
-    init(simplifiedQuote: (String, Bool, Int)) {
+    init(simplifiedQuote: (String, Bool)) {
         text = simplifiedQuote.0
         isLiked = simplifiedQuote.1
-        isShared = simplifiedQuote.2
     }
 }
