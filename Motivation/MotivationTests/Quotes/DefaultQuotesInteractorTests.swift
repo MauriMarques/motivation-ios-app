@@ -26,8 +26,7 @@ final class DefaultQuotesInteractorTests: XCTestCase {
         var expectedQuotes = QuotesMock.simpleQuotesModel
         expectedQuotes[0] = Quote(
             text: expectedQuotes[0].text,
-            isLiked: !expectedQuotes[0].isLiked,
-            isShared: expectedQuotes[0].isShared
+            isLiked: !expectedQuotes[0].isLiked
         )
 
         let (sut, presenterSpy) = makeSut()
