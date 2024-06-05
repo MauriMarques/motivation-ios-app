@@ -9,6 +9,7 @@ import UIKit
 
 protocol QuotesPresenter: AnyObject {
     func showQuotes(_ quotes: [Quote])
+    func shareQuote(_ quote: Quote)
 }
 
 final class QuotesViewController: UIViewController {
@@ -42,6 +43,17 @@ final class QuotesViewController: UIViewController {
 extension QuotesViewController: QuotesPresenter {
     func showQuotes(_ quotes: [Quote]) {
         quotesView.viewModel = viewModelFactory.createFromQuotes(quotes)
+    }
+
+    func shareQuote(_ quote: Quote) {
+        let activityViewController = UIActivityViewController(
+            activityItems: [quote.text],
+            applicationActivities: nil
+        )
+        present(
+            activityViewController,
+            animated: true
+        )
     }
 }
 

@@ -39,6 +39,21 @@ final class DefaultQuotesInteractorTests: XCTestCase {
         XCTAssertEqual(presenterSpy.invokedShowQuotesParameters?.quotes, expectedQuotes)
     }
 
+    func test_interactWithShared_shouldCallPresenterWithQuoteToBeShared() {
+        // Given
+        let quotes = QuotesMock.simpleQuotesModel
+        let expectedQuoteToBeShared = quotes[0]
+
+        let (sut, presenterSpy) = makeSut()
+
+        // When
+        sut.interactWithShared(atIndex: 0)
+
+        // Verify
+        XCTAssertEqual(presenterSpy.invokedShareQuoteCount, 1)
+        XCTAssertEqual(presenterSpy.invokedShareQuoteParameters?.quote, expectedQuoteToBeShared)
+    }
+
     private func makeSut() -> (DefaultQuotesInteractor, QuotesPresenterSpy) {
         let presenterSpy = QuotesPresenterSpy()
         let sut = DefaultQuotesInteractor()

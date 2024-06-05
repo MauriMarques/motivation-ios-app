@@ -19,4 +19,16 @@ final class QuotesPresenterSpy: QuotesPresenter {
         invokedShowQuotesParameters = (quotes, ())
         invokedShowQuotesParametersList.append((quotes, ()))
     }
+
+    var invokedShareQuote = false
+    var invokedShareQuoteCount = 0
+    var invokedShareQuoteParameters: (quote: Quote, Void)?
+    var invokedShareQuoteParametersList = [(quote: Quote, Void)]()
+
+    func shareQuote(_ quote: Quote) {
+        invokedShareQuote = true
+        invokedShareQuoteCount += 1
+        invokedShareQuoteParameters = (quote, ())
+        invokedShareQuoteParametersList.append((quote, ()))
+    }
 }
