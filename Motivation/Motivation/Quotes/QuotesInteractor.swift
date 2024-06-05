@@ -35,7 +35,6 @@ final class DefaultQuotesInteractor: QuotesInteractor {
     func interactWithLike(atIndex index: Int) {
         mockedQuotes[index].1 = !mockedQuotes[index].1
         presenter?.showQuotes(mockedQuotes.map { Quote(simplifiedQuote: $0) })
-        print("testeLiked")
     }
 
     func interactWithShared(atIndex index: Int) {

@@ -132,19 +132,15 @@ final class QuoteCell: UICollectionViewCell, CodingView {
 
     private func setupLikeButtonConstraints() {
         NSLayoutConstraint.activate([
-            likeButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20.0),
-            likeButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -200.0),
-            likeButton.widthAnchor.constraint(equalToConstant: 45.0),
-            likeButton.heightAnchor.constraint(equalToConstant: 40.0)
+            likeButton.topAnchor.constraint(equalTo: contentView.centerYAnchor, constant: 80.0),
+            likeButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20.0)
         ])
     }
 
     private func setupShareButtonConstraints() {
         NSLayoutConstraint.activate([
-            shareButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20.0),
-            shareButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -130.0),
-            shareButton.widthAnchor.constraint(equalToConstant: 45.0),
-            shareButton.heightAnchor.constraint(equalToConstant: 50.0)
+            shareButton.topAnchor.constraint(equalTo: likeButton.bottomAnchor, constant: 20.0),
+            shareButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20.0)
         ])
     }
 
