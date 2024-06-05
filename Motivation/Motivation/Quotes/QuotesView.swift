@@ -9,6 +9,7 @@ import UIKit
 
 protocol QuotesViewDelegate: AnyObject {
     func quotesView(_ quotesView: QuotesView, didTapLikeButtonAtIndex index: Int)
+    func quotesView(_ quotesView: QuotesView, didTapSharedButtomAtIndex index: Int)
 }
 
 final class QuotesView: ViewModelHandler<QuotesView.ViewModel>, CodingView {
@@ -96,6 +97,13 @@ extension QuotesView: UICollectionViewDataSource {
                 delegate?.quotesView(
                     self,
                     didTapLikeButtonAtIndex: indexPath.item
+                )
+            },
+            shareAction: { [weak self] in
+                guard let self else { return }
+                delegate?.quotesView(
+                    self,
+                    didTapSharedButtomAtIndex: indexPath.item
                 )
             }
         )

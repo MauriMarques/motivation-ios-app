@@ -11,6 +11,7 @@ protocol QuotesInteractor: AnyObject {
     var presenter: QuotesPresenter? { get }
     func loadQuotes()
     func interactWithLike(atIndex index: Int)
+    func interactWithShared(atIndex index: Int)
 }
 
 final class DefaultQuotesInteractor: QuotesInteractor {
@@ -27,7 +28,6 @@ final class DefaultQuotesInteractor: QuotesInteractor {
         ("All our dreams can come true, if we have the courage to pursue them.", false),
         ("Don't sit down and wait for the opportunities to come. Get up and make them.", true)
     ]
-
     func loadQuotes() {
         presenter?.showQuotes(mockedQuotes.map { Quote(simplifiedQuote: $0) })
     }
@@ -35,5 +35,9 @@ final class DefaultQuotesInteractor: QuotesInteractor {
     func interactWithLike(atIndex index: Int) {
         mockedQuotes[index].1 = !mockedQuotes[index].1
         presenter?.showQuotes(mockedQuotes.map { Quote(simplifiedQuote: $0) })
+    }
+
+    func interactWithShared(atIndex index: Int) {
+        print("The user shared the quote number \(index)")
     }
 }

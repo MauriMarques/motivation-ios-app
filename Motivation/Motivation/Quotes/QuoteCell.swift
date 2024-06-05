@@ -11,6 +11,7 @@ final class QuoteCell: UICollectionViewCell, CodingView {
     static var identifier: String { Self.description() }
 
     private var likeAction: (() -> Void)?
+    private var shareAction: (() -> Void)?
 
     private let label: UILabel = {
         let label = UILabel()
@@ -27,6 +28,12 @@ final class QuoteCell: UICollectionViewCell, CodingView {
         return likeButton
     }()
 
+    private let shareButton: UIButton = {
+        let shareButton = UIButton()
+        shareButton.translatesAutoresizingMaskIntoConstraints = false
+        return shareButton
+    }()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -39,13 +46,17 @@ final class QuoteCell: UICollectionViewCell, CodingView {
     func configure(
         title: String,
         isLiked: Bool,
-        likeAction: @escaping (() -> Void)
+        likeAction: @escaping (() -> Void),
+        shareAction: @escaping (() -> Void)
     ) {
         label.text = title
 
         configureLikeButton(
             isLiked: isLiked,
             likeAction: likeAction
+        )
+        configureShareButton(
+            shareAction: shareAction
         )
     }
 
@@ -72,16 +83,40 @@ final class QuoteCell: UICollectionViewCell, CodingView {
         self.likeAction = likeAction
     }
 
+    private func configureShareButton(
+        shareAction: @escaping (() -> Void)
+    ) {
+        let config = UIImage.SymbolConfiguration(paletteColors: [.black])
+        let sizeConfig = UIImage.SymbolConfiguration(pointSize: 40.0)
+        let combiedConfig = config.applying(sizeConfig)
+        let image = UIImage(
+            systemName: "square.and.arrow.up",
+            withConfiguration: combiedConfig
+        )
+        shareButton.setImage(
+            image,
+            for: .normal
+        )
+        shareButton.addTarget(
+            self,
+            action: #selector(didTapShareButton),
+            for: .touchUpInside
+        )
+        self.shareAction = shareAction
+    }
+
     // MARK: - CodingView
 
     func setupSubviews() {
         contentView.addSubview(label)
         contentView.addSubview(likeButton)
+        contentView.addSubview(shareButton)
     }
 
     func setupConstraints() {
         setupLabelConstraints()
         setupLikeButtonConstraints()
+        setupShareButtonConstraints()
     }
 
     private func setupLabelConstraints() {
@@ -97,15 +132,24 @@ final class QuoteCell: UICollectionViewCell, CodingView {
 
     private func setupLikeButtonConstraints() {
         NSLayoutConstraint.activate([
-            likeButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20.0),
-            likeButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -200.0),
-            likeButton.widthAnchor.constraint(equalToConstant: 45.0),
-            likeButton.heightAnchor.constraint(equalToConstant: 40.0)
+            likeButton.topAnchor.constraint(equalTo: contentView.centerYAnchor, constant: 80.0),
+            likeButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20.0)
+        ])
+    }
+
+    private func setupShareButtonConstraints() {
+        NSLayoutConstraint.activate([
+            shareButton.topAnchor.constraint(equalTo: likeButton.bottomAnchor, constant: 20.0),
+            shareButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20.0)
         ])
     }
 
     @objc private func didTapLikeButton() {
         likeAction?()
+    }
+
+    @objc private func didTapShareButton() {
+        shareAction?()
     }
 }
 
@@ -126,7 +170,8 @@ final class QuoteCell: UICollectionViewCell, CodingView {
                 cell.configure(
                     title: "Texto bem grande",
                     isLiked: false,
-                    likeAction: {}
+                    likeAction: {},
+                    shareAction: {}
                 )
                 return cell
             }
