@@ -37,6 +37,23 @@ final class QuotesViewControllerTests: XCTestCase {
         XCTAssertEqual(interactorSpy.invokedInteractWithLikeParameters?.index, tappedIndex)
     }
 
+    func test_quotesViewDelegate_didTapShareButtonAtIndex_shouldCallInteractWithSharedInteractor() {
+        // Given
+        let quotesView = QuotesView(viewModel: .init(quotes: nil))
+        let tappedIndex = 0
+        let (sut, interactorSpy) = makeSut()
+
+        // When
+        sut.quotesView(
+            quotesView,
+            didTapSharedButtomAtIndex: tappedIndex
+        )
+
+        // Verify
+        XCTAssertEqual(interactorSpy.invokedInteractWithShareCount, 1)
+        XCTAssertEqual(interactorSpy.invokedInteractWithSharedParameters?.index, tappedIndex)
+    }
+
     private func makeSut() -> (QuotesViewController, QuotesInteractorSpy) {
         let interactorSpy = QuotesInteractorSpy()
         let sut = QuotesViewController(interactor: interactorSpy)

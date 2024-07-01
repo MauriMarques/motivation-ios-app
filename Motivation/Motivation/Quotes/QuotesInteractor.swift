@@ -38,6 +38,7 @@ final class DefaultQuotesInteractor: QuotesInteractor {
     }
 
     func interactWithShared(atIndex index: Int) {
-        print("The user shared the quote number \(index)")
+        let quoteToBeShared = Quote(simplifiedQuote: mockedQuotes[index])
+        presenter?.shareQuote(quoteToBeShared)
     }
 }
